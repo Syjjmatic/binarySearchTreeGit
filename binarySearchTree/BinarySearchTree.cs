@@ -18,35 +18,71 @@ namespace binarySearchTree
             if (root == null)
             {
                 root = node;
-                return;
             }
+            else
+            {
+                temp = root;
 
+                while (true)
+                {
+                    if (data > temp.data)
+                    {
+                        if (temp.rightNode == null)
+                        {
+                            temp.rightNode = node;
+                            break;
+                        }
+                        else
+                        {
+                            temp = temp.rightNode;
+                        }
+                    }
+                    else if (data <= temp.data)
+                    {
+                        if (temp.leftNode == null)
+                        {
+                            temp.leftNode = node;
+                            break;
+                        }
+                        else
+                        {
+                            temp = temp.leftNode;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        public bool Search(int data)
+        {
             temp = root;
-
             while (true)
             {
-                if (data > temp.data)
+                if (data == temp.data)
+                {
+                    return true;
+                }
+                else if (data > temp.data)
                 {
                     if (temp.rightNode == null)
                     {
-                        temp.rightNode = node;
-                        break;
+                        return false;
                     }
                     else
                     {
                         temp = temp.rightNode;
                     }
                 }
-                else if(data <= temp.data)
+                else if (data < temp.data)
                 {
-                    if (temp.leftNode == null)
+                    if (temp.rightNode == null)
                     {
-                        temp.leftNode = node;
-                        break;
+                        return false;
                     }
                     else
                     {
-                        temp = temp.leftNode;
+                        temp = temp.rightNode;
                     }
                 }
             }
