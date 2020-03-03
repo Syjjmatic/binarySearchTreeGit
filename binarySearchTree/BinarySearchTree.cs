@@ -74,15 +74,15 @@ namespace binarySearchTree
                         temp = temp.rightNode;
                     }
                 }
-                else if (data < temp.data)
+                else if (data <= temp.data)
                 {
-                    if (temp.rightNode == null)
+                    if (temp.leftNode == null)
                     {
                         return false;
                     }
                     else
                     {
-                        temp = temp.rightNode;
+                        temp = temp.leftNode;
                     }
                 }
             }
